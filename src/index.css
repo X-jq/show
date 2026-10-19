@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-space text-mist font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  ::selection {
+    background: rgba(124, 108, 255, 0.35);
+  }
+}
+
+@layer utilities {
+
+  /* 滚动进入视口动画 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* 博客正文排版（Markdown 渲染内容） */
+.post-content {
+  @apply text-mist-dim leading-relaxed;
+}
+
+.post-content h2 {
+  @apply mb-4 mt-10 text-2xl font-bold text-mist;
+  scroll-margin-top: 90px;
+}
+
+.post-content h3 {
+  @apply mb-3 mt-8 text-xl font-semibold text-mist;
+  scroll-margin-top: 90px;
+}
+
+.post-content p {
+  @apply mb-4;
+}
+
+.post-content ul,
+.post-content ol {
+  @apply mb-4 list-disc space-y-1 pl-6;
+}
+
+.post-content ol {
+  @apply list-decimal;
+}
+
+.post-content a {
+  @apply text-nebula underline underline-offset-4 hover:text-starcyan;
+}
+
+.post-content strong {
+  @apply font-semibold text-mist;
+}
+
+.post-content code {
+  @apply rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-starcyan;
+}
+
+.post-content pre {
+  @apply mb-4 overflow-x-auto rounded-xl border border-white/10 bg-[#0d1117] p-4;
+}
+
+.post-content pre code {
+  @apply bg-transparent p-0 text-sm leading-relaxed;
+}
+
+.post-content blockquote {
+  @apply mb-4 border-l-4 border-nebula/50 pl-4 italic;
+}
+
+.post-content table {
+  @apply mb-4 w-full border-collapse text-sm;
+}
+
+.post-content th,
+.post-content td {
+  @apply border border-white/10 px-3 py-2 text-left;
+}
+
+.post-content th {
+  @apply bg-white/5 font-semibold text-mist;
+}
