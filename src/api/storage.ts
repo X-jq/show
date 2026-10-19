@@ -19,7 +19,7 @@ export const keys = {
 } as const
 
 export const defaultSettings: SiteSettings = {
-  siteName: '林星河 · 个人作品集',
+  siteName: '林珊珊 · 个人作品集',
   siteDescription: '全栈工程师，专注 React 与现代化 Web 体验',
   footerText: '用 React 与星光构建',
 }
